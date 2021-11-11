@@ -1,9 +1,13 @@
 import setuptools
 
-install_requires = []
+install_requires = [
+    'numpy',
+    'pandas',
+]
 
 extras = {
     "dev": [
+        'lightfm',
 
     ]
 }
