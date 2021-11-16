@@ -1,4 +1,4 @@
-package nl.hu.consultant.security;
+package nl.hu.consultant.security.domain;
 
 public class User {
     private int id;

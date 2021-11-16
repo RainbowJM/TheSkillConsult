@@ -1,4 +1,4 @@
-package nl.hu.consultant.skilltree;
+package nl.hu.consultant.skilltree.domain;
 
 public class Recommendation {
     private int id;

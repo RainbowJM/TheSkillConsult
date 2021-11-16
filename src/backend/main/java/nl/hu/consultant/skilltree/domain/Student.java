@@ -1,6 +1,6 @@
-package nl.hu.consultant.skilltree;
+package nl.hu.consultant.skilltree.domain;
 
-import nl.hu.consultant.security.User;
+import nl.hu.consultant.security.domain.User;
 
 import java.util.Date;
 import java.util.List;
