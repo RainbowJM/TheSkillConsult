@@ -2,8 +2,18 @@ package nl.hu.consultant.skilltree.domain;
 
 import nl.hu.consultant.security.domain.User;
 
-public class Admin extends User {
-    public Admin(int id, String username, String password, String firstName, String lastName) {
-        super(id, username, password, firstName, lastName);
+public class Admin {
+    private User user;
+
+    public Admin(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
