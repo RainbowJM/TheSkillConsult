@@ -1,11 +1,18 @@
 package nl.hu.consultant.skilltree.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Progress {
+    @Id
+    @GeneratedValue
     private int id;
     private int totalPoints;
     private int point;
+
+    @OneToMany
+    @JoinColumn
     private List<Skill> skills;
 
     public Progress(int id, int totalPoints, int point, List<Skill> skills) {
@@ -13,6 +20,9 @@ public class Progress {
         this.totalPoints = totalPoints;
         this.point = point;
         this.skills = skills;
+    }
+
+    public Progress() {
     }
 
     public int getId() {

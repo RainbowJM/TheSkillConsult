@@ -1,9 +1,19 @@
 package nl.hu.consultant.skilltree.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Recommendation {
+    @Id
+    @GeneratedValue
     private int id;
+
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private Type type;
+
+    @OneToOne
     private Skill skill;
 
     public Recommendation(int id, String name, Type type, Skill skill) {
@@ -11,6 +21,9 @@ public class Recommendation {
         this.name = name;
         this.type = type;
         this.skill = skill;
+    }
+
+    public Recommendation() {
     }
 
     public int getId() {
