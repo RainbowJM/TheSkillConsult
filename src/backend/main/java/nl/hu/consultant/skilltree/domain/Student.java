@@ -1,6 +1,7 @@
 package nl.hu.consultant.skilltree.domain;
 
 import nl.hu.consultant.security.domain.User;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,7 +31,9 @@ public class Student {
     @ElementCollection
     private List<String> languages;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Group groupStudent;
 
     @Transient

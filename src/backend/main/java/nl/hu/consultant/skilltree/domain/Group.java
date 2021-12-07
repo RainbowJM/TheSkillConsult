@@ -1,5 +1,7 @@
 package nl.hu.consultant.skilltree.domain;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,8 +13,12 @@ public class Group {
 
     private String className;
 
-    @ElementCollection
+    @OneToMany
+    @JoinColumn
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Student> students;
+
+    @OneToOne
     private Teacher teacher;
 
     public Group(int id, String className, List<Student> students, Teacher teacher) {
