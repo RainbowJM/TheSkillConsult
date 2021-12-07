@@ -2,37 +2,68 @@ package nl.hu.consultant.skilltree.domain;
 
 import nl.hu.consultant.security.domain.User;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-public class Student extends User {
+@Entity
+public class Student {
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+
     private Date birthday;
     private String priorEducation;
     private int yearOfStudy;
     private String nationality;
-    private String parentNationality;
-    private String parentOccupation;
-    private List<String> previousInternationalExperience;
-    private List<String> languages;
-    private Class classStudent;
+    private String parentOneNationality;
+    private String parentTwoNationality;
+    private String parentOneOccupation;
+    private String parentTwoOccupation;
 
-    public Student(int id, String username, String password, String firstName, String lastName, Gender gender, Date birthday, String priorEducation, int yearOfStudy, String nationality, String parentNationality, String parentOccupation, List<String> previousInternationalExperience, List<String> languages, Class classStudent) {
-        super(id, username, password, firstName, lastName);
+    @ElementCollection
+    private List<String> previousInternationalExperience;
+
+    @ElementCollection
+    private List<String> languages;
+
+    @OneToOne
+    private Group groupStudent;
+
+    @Transient
+    private User user;
+
+    public Student(int id, Gender gender, Date birthday, String priorEducation, int yearOfStudy, String nationality,
+                   String parentOneNationality, String parentTwoNationality, String parentOneOccupation, String parentTwoOccupation, List<String> previousInternationalExperience, List<String> languages, Group groupStudent, User user) {
+        this.id = id;
         this.gender = gender;
         this.birthday = birthday;
         this.priorEducation = priorEducation;
         this.yearOfStudy = yearOfStudy;
         this.nationality = nationality;
-        this.parentNationality = parentNationality;
-        this.parentOccupation = parentOccupation;
+        this.parentOneNationality = parentOneNationality;
+        this.parentTwoNationality = parentTwoNationality;
+        this.parentOneOccupation = parentOneOccupation;
+        this.parentTwoOccupation = parentTwoOccupation;
         this.previousInternationalExperience = previousInternationalExperience;
         this.languages = languages;
-        this.classStudent = classStudent;
+        this.groupStudent = groupStudent;
+        this.user = user;
     }
 
-    public Student(int id, String username, String password, String firstName, String lastName) {
-        super(id, username, password, firstName, lastName);
+    public Student() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Gender getGender() {
@@ -75,20 +106,36 @@ public class Student extends User {
         this.nationality = nationality;
     }
 
-    public String getParentNationality() {
-        return parentNationality;
+    public String getParentOneNationality() {
+        return parentOneNationality;
     }
 
-    public void setParentNationality(String parentNationality) {
-        this.parentNationality = parentNationality;
+    public void setParentOneNationality(String parentOneNationality) {
+        this.parentOneNationality = parentOneNationality;
     }
 
-    public String getParentOccupation() {
-        return parentOccupation;
+    public String getParentTwoNationality() {
+        return parentTwoNationality;
     }
 
-    public void setParentOccupation(String parentOccupation) {
-        this.parentOccupation = parentOccupation;
+    public void setParentTwoNationality(String parentTwoNationality) {
+        this.parentTwoNationality = parentTwoNationality;
+    }
+
+    public String getParentOneOccupation() {
+        return parentOneOccupation;
+    }
+
+    public void setParentOneOccupation(String parentOneOccupation) {
+        this.parentOneOccupation = parentOneOccupation;
+    }
+
+    public String getParentTwoOccupation() {
+        return parentTwoOccupation;
+    }
+
+    public void setParentTwoOccupation(String parentTwoOccupation) {
+        this.parentTwoOccupation = parentTwoOccupation;
     }
 
     public List<String> getPreviousInternationalExperience() {
@@ -107,11 +154,19 @@ public class Student extends User {
         this.languages = languages;
     }
 
-    public Class getClassStudent() {
-        return classStudent;
+    public Group getGroupStudent() {
+        return groupStudent;
     }
 
-    public void setClassStudent(Class classStudent) {
-        this.classStudent = classStudent;
+    public void setGroupStudent(Group groupStudent) {
+        this.groupStudent = groupStudent;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
