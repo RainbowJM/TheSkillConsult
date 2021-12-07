@@ -1,26 +1,55 @@
 package nl.hu.consultant.skilltree.domain;
 
 import nl.hu.consultant.security.domain.User;
+import org.hibernate.annotations.Cascade;
 
+import javax.persistence.*;
 import java.util.List;
 
-public class Teacher extends User {
-    private List<Class> classes;
+@Entity
+public class Teacher {
+    @Id
+    @GeneratedValue
+    private int id;
 
-    public Teacher(int id, String username, String password, String firstName, String lastName) {
-        super(id, username, password, firstName, lastName);
+    @JoinColumn
+    @OneToMany(cascade = CascadeType.ALL)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Group> groups;
+
+    @Transient
+    private User user;
+
+    public Teacher(int id, List<Group> groups, User user) {
+        this.id = id;
+        this.groups = groups;
+        this.user = user;
     }
 
-    public Teacher(int id, String username, String password, String firstName, String lastName, List<Class> classes) {
-        super(id, username, password, firstName, lastName);
-        this.classes = classes;
+    public Teacher() {
     }
 
-    public List<Class> getClasses() {
-        return classes;
+    public int getId() {
+        return id;
     }
 
-    public void setClasses(List<Class> classes) {
-        this.classes = classes;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
