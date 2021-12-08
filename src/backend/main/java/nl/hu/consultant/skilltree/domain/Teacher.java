@@ -13,8 +13,7 @@ public class Teacher {
     private int id;
 
     @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @OneToMany
     private List<Group> groups;
 
     @Transient

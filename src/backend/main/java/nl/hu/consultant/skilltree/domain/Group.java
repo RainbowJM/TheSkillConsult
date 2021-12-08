@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "school_classes")
 public class Group {
     @Id
     @GeneratedValue
@@ -15,17 +16,13 @@ public class Group {
 
     @OneToMany
     @JoinColumn
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Student> students;
-
-    @OneToOne
-    private Teacher teacher;
 
     public Group(int id, String className, List<Student> students, Teacher teacher) {
         this.id = id;
         this.className = className;
         this.students = students;
-        this.teacher = teacher;
+//        this.teacher = teacher;
     }
 
     public Group() {
@@ -48,19 +45,19 @@ public class Group {
         this.className = className;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
+//    public List<Student> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(List<Student> students) {
+//        this.students = students;
+//    }
+//
+//    public Teacher getTeacher() {
+//        return teacher;
+//    }
+//
+//    public void setTeacher(Teacher teacher) {
+//        this.teacher = teacher;
+//    }
 }

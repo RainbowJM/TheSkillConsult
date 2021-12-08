@@ -33,7 +33,6 @@ public class Student {
 
     @ManyToOne
     @JoinColumn
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Group groupStudent;
 
     @Transient
@@ -51,7 +50,6 @@ public class Student {
         this.parentTwoNationality = parentTwoNationality;
         this.parentOneOccupation = parentOneOccupation;
         this.parentTwoOccupation = parentTwoOccupation;
-        this.previousInternationalExperience = previousInternationalExperience;
         this.languages = languages;
         this.groupStudent = groupStudent;
         this.user = user;
