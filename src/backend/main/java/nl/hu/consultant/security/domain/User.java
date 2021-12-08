@@ -1,11 +1,37 @@
 package nl.hu.consultant.security.domain;
 
-public class User {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import java.util.Collection;
+
+/**
+ * This is a data model.
+ *
+ * It is similar to a domain model, but is
+ * intended for storage purposes. It does not
+ * contain a lot of business logic.
+ *
+ * It implements UserDetails in order to make it usable
+ * as login/registration model for Spring.
+ */
+
+@Entity
+@Table(name = "users")
+public class User implements UserDetails{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(nullable = false, unique = true)
     private String username;
     private String password;
     private String firstName;
     private String lastName;
+
+    public User() {
+    }
 
     public User(int id, String username, String password, String firstName, String lastName) {
         this.id = id;
@@ -19,39 +45,45 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }
