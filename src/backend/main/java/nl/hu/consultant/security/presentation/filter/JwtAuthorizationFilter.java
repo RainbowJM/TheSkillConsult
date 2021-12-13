@@ -34,6 +34,10 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         this.secret = secret;
     }
 
+    public static boolean addToBlacklist(String token) {
+        return true;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws IOException, ServletException {
