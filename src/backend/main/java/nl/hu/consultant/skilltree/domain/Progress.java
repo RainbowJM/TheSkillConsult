@@ -10,16 +10,20 @@ public class Progress {
     private int id;
     private int totalPoints;
     private int point;
+    private int student_id;
 
-    @OneToMany
+/*
+    @OneToOne
     @JoinColumn
-    private List<Skill> skills;
+    private User id ;
 
-    public Progress(int id, int totalPoints, int point, List<Skill> skills) {
+ */
+
+    public Progress(int id, int totalPoints, int point, int student_id) {
         this.id = id;
         this.totalPoints = totalPoints;
         this.point = point;
-        this.skills = skills;
+        this.student_id = student_id;
     }
 
     public Progress() {
@@ -49,11 +53,12 @@ public class Progress {
         this.point = point;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public int getStudent_id() {
+        return student_id;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setStudent_id(int student_id) {
+        this.student_id = student_id;
     }
+
 }
