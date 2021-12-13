@@ -2,12 +2,9 @@ package nl.hu.consultant.security.presentation.controller;
 
 import nl.hu.consultant.security.application.UserService;
 import nl.hu.consultant.security.presentation.filter.JwtAuthorizationFilter;
-import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
