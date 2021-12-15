@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
  */
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     private final String secret;
+    private final static List<String> tokenBlacklist = new ArrayList<>();
 
     public JwtAuthorizationFilter(
             String secret,
@@ -35,7 +37,11 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     public static boolean addToBlacklist(String token) {
-        return true;
+        if (!tokenBlacklist.contains(token)) {
+            tokenBlacklist.add(token);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -52,11 +58,18 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     private Authentication getAuthentication(HttpServletRequest request) {
         String token = request.getHeader("Authorization");
 
+        // Check if token not empty
         if (token == null || token.isEmpty()) {
             return null;
         }
 
+        // Chck if token has correct format
         if (!token.startsWith("Bearer ")) {
+            return null;
+        }
+
+        // Check if token is not in logged out blacklist
+        if (tokenBlacklist.contains(token)) {
             return null;
         }
 
@@ -82,11 +95,11 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             return null;
         }
 
-        UserProfile principal = new UserProfile(
-                username,
-                (String) parsedToken.getBody().get("firstName"),
-                (String) parsedToken.getBody().get("lastName")
-        );
+        UserProfile principal = new UserProfile(username);
+//                username),
+//                (String) parsedToken.getBody().get("firstName"),
+//                (String) parsedToken.getBody().get("lastName")
+//        );
 
         return new UsernamePasswordAuthenticationToken(principal, null, authorities);
     }
