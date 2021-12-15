@@ -63,7 +63,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             return null;
         }
 
-        // Chck if token has correct format
+        // Check if token has correct format
         if (!token.startsWith("Bearer ")) {
             return null;
         }
