@@ -28,8 +28,26 @@ public class UserService implements UserDetailsService {
         this.userRepository.save(user);
     }
 
+    public boolean edit(String username, String newPassword){
+        if (isUserExisting(username)) {
+            String encodedPassword = this.passwordEncoder.encode(newPassword);
+            User user = loadUserByUsername(username);
+            user.changePassword(encodedPassword);
+
+            this.userRepository.save(user);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isUserExisting(String username){
+        return !(userRepository.findByUsername(username).isEmpty());
+    }
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
         return this.userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
     }

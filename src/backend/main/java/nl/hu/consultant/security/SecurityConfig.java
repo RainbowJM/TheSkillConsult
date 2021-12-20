@@ -17,16 +17,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * This class configures authentication and authorisation
  * for the application.
- *
+ * <p>
  * The configure method
- *   - permits all POSTs to the registration and login endpoints
- *   - requires all requests other URLs to be authenticated
- *   - sets up JWT-based authentication and authorisation
- *   - enforces sessions to be stateless (see: REST)
- *
- *  We make sure user data is securely stored
- *  by utilizing a BcryptPasswordEncoder.
- *  We don't store passwords, only hashes of passwords.
+ * - permits all POSTs to the registration and login endpoints
+ * - requires all requests other URLs to be authenticated
+ * - sets up JWT-based authentication and authorisation
+ * - enforces sessions to be stateless (see: REST)
+ * <p>
+ * We make sure user data is securely stored
+ * by utilizing a BcryptPasswordEncoder.
+ * We don't store passwords, only hashes of passwords.
  */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
@@ -44,11 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and()
                 .csrf().disable()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, REGISTER_PATH).permitAll()
-                .antMatchers(HttpMethod.POST, LOGIN_PATH).permitAll()
-                .anyRequest().authenticated()
-                .and()
                 .addFilterBefore(
                         new JwtAuthenticationFilter(
                                 LOGIN_PATH,
@@ -60,7 +55,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .addFilter(new JwtAuthorizationFilter(this.jwtSecret, this.authenticationManager()))
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, REGISTER_PATH).permitAll()
+                .antMatchers(HttpMethod.POST, LOGIN_PATH).permitAll()
+                .anyRequest().authenticated();
 
     }
 

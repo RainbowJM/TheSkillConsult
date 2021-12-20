@@ -16,7 +16,7 @@ public class Teacher {
     @OneToMany
     private List<Group> groups;
 
-    @Transient
+    @OneToOne
     private User user;
 
     public Teacher(int id, List<Group> groups, User user) {
