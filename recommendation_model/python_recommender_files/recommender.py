@@ -12,7 +12,7 @@ def predict_scores(row, unique_courses, linreg):
     """Predict how good each course will score for the user."""
     all_courses = []
     for col in unique_courses:
-        row[f'action_{col}'] = 1
+        row[f'course_{col}'] = 1
         pred = linreg.predict([row.values.tolist()])
         all_courses.append(pred)
         row[f'course_{col}'] = 0
