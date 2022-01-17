@@ -35,8 +35,7 @@ public class User implements UserDetails{
     public User() {
     }
 
-    public User(int id, String username, String password, String firstName, String lastName) {
-        this.id = id;
+    public User(String username, String password, String firstName, String lastName) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -63,24 +62,27 @@ public class User implements UserDetails{
         return lastName;
     }
 
+    public void changePassword(String password){
+        this.password = password;
+    }
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override
