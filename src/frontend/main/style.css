@@ -1,0 +1,46 @@
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: aliceblue;
+}
+
+.menu {
+    grid-area: left;
+    width: 95%;
+}
+.recomendation {
+    grid-area: center;
+    width: 95%;
+}
+.chart {
+    grid-area: right;
+    width: 73%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'left center center right right';
+    grid-gap: 0;
+    padding: 0;
+
+}
+
+.grid-container .menu, .recomendation, .chart {
+    text-align: center;
+    padding: 0;
+    font-size: 30px;
+    border: black solid 2px;
+    background-color: white;
+}
+
+.recomendation table {
+    text-align: left;
+    padding: 5%;
+    font-size: 24px;
+}
+
+div.logout {
+    position: absolute;
+    bottom: 3%;
+    left: 1%;
+}
