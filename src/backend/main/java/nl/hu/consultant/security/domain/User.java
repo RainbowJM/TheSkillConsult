@@ -1,5 +1,7 @@
 package nl.hu.consultant.security.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,42 +26,38 @@ import java.util.List;
 public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter @Getter
     private int id;
 
+    @Setter @Getter
     @Column(nullable = false, unique = true)
     private String username;
+
+    @Setter @Getter
     private String password;
+
+    @Setter @Getter
     private String firstName;
+
+    @Setter @Getter
     private String lastName;
+
+    @Setter @Getter
+    @Enumerated(EnumType.STRING)
+    private Role userRole;
 
     public User() {
     }
 
-    public User(String username, String password, String firstName, String lastName) {
+    public User(String username,
+                String password,
+                String firstName,
+                String lastName) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+        this.userRole = Role.STUDENT;
     }
 
     public void changePassword(String password){
