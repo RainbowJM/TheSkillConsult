@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>skilltree</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="menu">
+                <p>menu</p>
+                <div class="logout">
+                    <img src="img/logout.png" width="24">
+                    Sign out
+                </div>
+            </div>
+
+            <div class="recomendation">
+                <p>Reccomandtions Courses</p>
+                <table>
+                    <tr>
+                        <td><p id="cursusReconmantion"></p></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chart">
+                <p>Progress</p>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+        <script type="text/javascript" src="Scripts/ChartScript.js"></script>
+        <script type="text/javascript" src="Scripts/RecomandationScript.js"></script>
+    </body>
+</html>

@@ -9,10 +9,25 @@
         <div class="grid-container">
             <div class="menu">
                 <p>menu</p>
-                <div class="logout">
-                    <img src="img/logout.png" width="24">
-                    Sign out
-                </div>
+                <table class="studentsTable">
+                    <tr>
+                        <td>
+                            <label>Students</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="studentsBox">
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button class="logout">
+                    <p>
+                        <img src="img/logout.png" width="24">
+                        Sign out
+                    </p>
+                </button>
             </div>
 
             <div class="recomendation">
@@ -20,10 +35,7 @@
                 <p>Courses</p>
                 <table>
                     <tr>
-                        <td>Advanced Software Design</td>
-                    </tr>
-                    <tr>
-                        <td>Doman Driven Design</td>
+                        <td><p id="cursusReconmantion"></p></td>
                     </tr>
                 </table>
             </div>
@@ -35,5 +47,7 @@
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
         <script type="text/javascript" src="Scripts/ChartScript.js"></script>
+        <script type="text/javascript" src="Scripts/SelectboxScript.js"></script>
+        <script type="text/javascript" src="Scripts/RecomandationScript.js"></script>
     </body>
 </html>

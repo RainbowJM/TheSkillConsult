@@ -58,3 +58,51 @@ const config = {
 
 const myChart = new Chart(ctx, config);
 
+var student = new document.getElementById("studentsBox");
+var SelectedStudent = student.options[student.selectedIndex].text;
+
+fetch("/progress", { method: 'POST', body: SelectedStudent })
+    .then(response => response.json())
+    .then(function(myJson) {
+        console.log(myJson.Progress);
+
+        const data = {
+            labels,
+            datasets: [
+                {
+                    data: [
+                        myJson.Progress[0].openness,
+                        myJson.Progress[0].cultural_empathy,
+                        myJson.Progress[0].openmindness,
+                        myJson.Progress[0].adaptability,
+                        myJson.Progress[0].flexibility,
+                        myJson.Progress[0].emotional_stability,
+                        myJson.Progress[0].social_initiative],
+                    label: "eerste meeting",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }, {
+                    data: [
+                        myJson.Progress[1].openness,
+                        myJson.Progress[1].cultural_empathy,
+                        myJson.Progress[1].openmindness,
+                        myJson.Progress[1].adaptability,
+                        myJson.Progress[1].flexibility,
+                        myJson.Progress[1].emotional_stability,
+                        myJson.Progress[1].social_initiative],
+                    label: "tweede meeting",
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(54, 162, 235)'
+                }
+
+            ]
+        };
+    });

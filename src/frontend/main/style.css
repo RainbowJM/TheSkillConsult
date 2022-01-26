@@ -5,21 +5,22 @@ body {
 
 .menu {
     grid-area: left;
-    width: 95%;
+    width: 420px;
+    height: available;
 }
 .recomendation {
     grid-area: center;
-    width: 95%;
+    width: 420px;
 }
 .chart {
     grid-area: right;
-    width: 73%;
+    width: 600px;
 }
 
 .grid-container {
     display: grid;
     grid-template-areas:
-    'left center center right right';
+    'left center right';
     grid-gap: 0;
     padding: 0;
 
@@ -28,9 +29,10 @@ body {
 .grid-container .menu, .recomendation, .chart {
     text-align: center;
     padding: 0;
-    font-size: 30px;
+    font-size: 24px;
     border: black solid 2px;
     background-color: white;
+    border-radius: 4px;
 }
 
 .recomendation table {
@@ -39,8 +41,19 @@ body {
     font-size: 24px;
 }
 
-div.logout {
-    position: absolute;
-    bottom: 3%;
-    left: 1%;
+.menu .logout {
+    position: relative;
+    bottom: 0px;
+    color: black;
+    background-color: Gray;
+    cursor: pointer;
+    border: 2px solid #555555;
+}
+
+.menu .studentsTable {
+    position: relative;
+}
+
+.menu .logout p {
+    font-size: 16px;
 }
