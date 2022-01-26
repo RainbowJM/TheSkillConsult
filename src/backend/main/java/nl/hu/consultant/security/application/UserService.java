@@ -20,6 +20,7 @@ public class UserService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
+//   fixme: how to go from enum to string? or should it be something else
     public void register(String username, String password, String firstName, String lastName) {
         String encodedPassword = this.passwordEncoder.encode(password);
 

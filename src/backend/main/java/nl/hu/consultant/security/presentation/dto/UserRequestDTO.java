@@ -1,9 +1,9 @@
-package nl.hu.consultant.skilltree.persistence.dto;
+package nl.hu.consultant.security.presentation.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class TeacherRequestDTO {
+public class UserRequestDTO {
     @NotNull
     @NotBlank
     public String username;

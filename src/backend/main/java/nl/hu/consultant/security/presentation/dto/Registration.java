@@ -15,4 +15,5 @@ public class Registration {
 
     @NotBlank
     public String lastName;
+
 }
