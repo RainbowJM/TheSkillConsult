@@ -33,6 +33,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public final static String LOGIN_PATH = "/login";
     public final static String REGISTER_PATH = "/register";
+    public final static String CHANGEPASSWORD_PATH = "/user/edit";
 
     @Value("${security.jwt.secret}")
     private String jwtSecret;
@@ -58,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.PATCH, CHANGEPASSWORD_PATH).permitAll()
                 .antMatchers(HttpMethod.POST, REGISTER_PATH).permitAll()
                 .antMatchers(HttpMethod.POST, LOGIN_PATH).permitAll()
                 .antMatchers("/index.html", "/forget-password.html", "/new-user.html", "/css/**", "/script/**").permitAll()
