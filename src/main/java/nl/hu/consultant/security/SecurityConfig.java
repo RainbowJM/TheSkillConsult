@@ -62,13 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PATCH, CHANGEPASSWORD_PATH).permitAll()
                 .antMatchers(HttpMethod.POST, REGISTER_PATH).permitAll()
                 .antMatchers(HttpMethod.POST, LOGIN_PATH).permitAll()
-                // fixme: check root of the frontend files
                 .antMatchers(
                         "/index.html",
                         "/forget-password.html",
                         "/new-user.html",
                         "/Studentoverzicht.html",
-                        "/DocentStudentoverziecht.html",
+                        "/DocentStudentoverzicht.html",
                         "/css/**",
                         "/script/**").permitAll()
                 .anyRequest().authenticated();

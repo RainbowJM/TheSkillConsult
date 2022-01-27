@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
     }
 
     private boolean isUserExisting(String username){
-        return !(userRepository.findByUsername(username).isEmpty());
+        return userRepository.findByUsername(username).isPresent();
     }
 
     @Override

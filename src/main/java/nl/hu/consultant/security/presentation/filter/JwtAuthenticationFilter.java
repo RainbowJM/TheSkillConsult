@@ -68,12 +68,12 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
         String token = Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(signingKey), SignatureAlgorithm.HS512)
                 .setHeaderParam("typ", "JWT")
-                .setIssuer("skilltree-consultant-api")
-                .setAudience("skilltree-cnsultant")
+                .setIssuer("skill-consultant-api")
+                .setAudience("skill-consultant")
                 .setSubject(user.getUsername())
                 .setExpiration(new Date(System.currentTimeMillis() + this.expirationInMs))
                 .claim("rol", roles)
-//                .claim("firstName", user.getFirstName())
+                .claim("ROLE", user.getUserRole())
 //                .claim("lastName", user.getLastName())
                 .compact();
 
