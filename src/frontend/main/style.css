@@ -14,7 +14,7 @@ body {
 }
 .chart {
     grid-area: right;
-    width: 600px;
+    width: 590px;
 }
 
 .grid-container {
@@ -54,6 +54,23 @@ body {
     position: relative;
 }
 
-.menu .logout p {
-    font-size: 16px;
+.logout {
+    font-size: 20px;
+    width: 415px;
+    margin-top: 1%;
+}
+
+.line {
+    border-bottom: 3px solid black;
+    padding-bottom: 2%;
+    width: available;
+}
+
+#studentsBox {
+    font-size: 20px;
+    position: relative;
+    color: black;
+    background-color: Gray;
+    cursor: pointer;
+    border: 2px solid #555555;
 }

@@ -8,15 +8,11 @@
     <body>
         <div class="grid-container">
             <div class="menu">
-                <p>menu</p>
+                <p class="line">menu</p>
                 <table class="studentsTable">
                     <tr>
                         <td>
                             <label>Students</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <select id="studentsBox" onchange="UpdateChart()">
                             </select>
                         </td>
@@ -28,22 +24,22 @@
             </div>
 
             <div class="recomendation">
-                <p>Reccomandtions</p>
-                <p>Courses</p>
-                <table>
-                    <tr>
-                        <td><p id="cursusReconmantion"></p></td>
-                    </tr>
-                </table>
+                <p class="line">Reccomandtions Courses</p>
+                <p id="cursusReconmantion"></p>
             </div>
 
             <div class="chart">
-                <p>Progress</p>
+                <p class="line">Progress</p>
                 <div class="myChart">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
+        <footer class="copy-right">
+            <div class="footer-bottom">
+                &copy; 2022 Skilltree Consultant || <span>Designed INNO Project </span>
+            </div>
+        </footer>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
         <script type="text/javascript" src="Scripts/SelectboxScript.js"></script>
         <script type="text/javascript" src="Scripts/RecomandationScript.js"></script>

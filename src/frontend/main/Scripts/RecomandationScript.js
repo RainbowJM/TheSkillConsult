@@ -1,14 +1,15 @@
+document.getElementById('cursusReconmantion').innerHTML = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
 function UpdateReccomandation(student) {
     var Course = "";
     switch (student){
         case 'Jan':
-            Course = 'ASD'
+            Course = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
             break;
         case 'Piet':
-            Course = 'Englisch'
+            Course = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
             break;
         case 'Klaas':
-            Course = 'French'
+            Course = 'Honours - Mindfulness voor professionals\u202f(OHON-MINDFUL-18)'
             break;
 
     }
