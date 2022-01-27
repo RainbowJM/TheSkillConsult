@@ -1,7 +1,7 @@
-package nl.hu.consultant.skilltree.persitence;
+package nl.hu.consultant.skill.persitence;
 
-import nl.hu.consultant.skilltree.domain.Progress;
-import nl.hu.consultant.skilltree.domain.Recommendation;
+import nl.hu.consultant.skill.domain.Progress;
+import nl.hu.consultant.skill.domain.Recommendation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

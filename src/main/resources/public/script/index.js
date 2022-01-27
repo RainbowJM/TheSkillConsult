@@ -18,7 +18,7 @@ function signin(){
             .then(function (response) {
                 if(response.ok) {
                     console.log("h");
-                    window.location = "https://google.com";
+                    window.location = "Studentoverzicht.html";
                 }else {
                     console.log("HH")
                     alert("Wrong username/password")
