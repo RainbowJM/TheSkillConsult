@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SkilltreeConsultantApplication {
+public class SkillConsultantApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SkilltreeConsultantApplication.class, args);
+        SpringApplication.run(SkillConsultantApplication.class, args);
     }
 
 }

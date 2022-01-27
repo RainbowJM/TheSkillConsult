@@ -2,7 +2,6 @@ package nl.hu.consultant.security.application;
 
 import nl.hu.consultant.security.domain.User;
 import nl.hu.consultant.security.persistence.UserRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
