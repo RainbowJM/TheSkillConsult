@@ -1,12 +1,23 @@
-document.getElementById('cursusReconmantion').innerHTML = 'Cursus'
+function UpdateReccomandation(student) {
+    var Course = "";
+    switch (student){
+        case 'Jan':
+            Course = 'ASD'
+            break;
+        case 'Piet':
+            Course = 'Englisch'
+            break;
+        case 'Klaas':
+            Course = 'French'
+            break;
 
-var student = new document.getElementById("studentsBox");
-var SelectedStudent = student.options[student.selectedIndex].text;
+    }
+    document.getElementById('cursusReconmantion').innerHTML = Course
 
-// console.log(SelectedStudent);
-fetch("/recomandation", { method: 'POST', body: SelectedStudent })
-    .then(response => response.json())
-    .then(function(myJson) {
-        console.log(myJson.Recomandation);
-        document.getElementById('cursusReconmantion').innerHTML = myJson.Recomandation;
-    });
+}
+// fetch("/recomandation", { method: 'POST', body: SelectedStudent })
+//     .then(response => response.json())
+//     .then(function(myJson) {
+//         console.log(myJson.Recomandation);
+//         document.getElementById('cursusReconmantion').innerHTML = myJson.Recomandation;
+//     });
