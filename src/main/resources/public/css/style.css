@@ -1,0 +1,76 @@
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: aliceblue;
+}
+
+.menu {
+    grid-area: left;
+    width: 420px;
+    height: available;
+}
+.recomendation {
+    grid-area: center;
+    width: 420px;
+}
+.chart {
+    grid-area: right;
+    width: 590px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'left center right';
+    grid-gap: 0;
+    padding: 0;
+
+}
+
+.grid-container .menu, .recomendation, .chart {
+    text-align: center;
+    padding: 0;
+    font-size: 24px;
+    border: black solid 2px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.recomendation table {
+    text-align: left;
+    padding: 5%;
+    font-size: 24px;
+}
+
+.menu .logout {
+    position: relative;
+    bottom: 0px;
+    color: black;
+    background-color: Gray;
+    cursor: pointer;
+    border: 2px solid #555555;
+}
+
+.menu .studentsTable {
+    position: relative;
+}
+
+.logout {
+    font-size: 20px;
+    width: 415px;
+    margin-top: 1%;
+}
+
+.line {
+    border-bottom: 3px solid black;
+    padding-bottom: 2%;
+    width: available;
+}
+
+#studentsBox {
+    font-size: 20px;
+    position: relative;
+    color: black;
+    background-color: Gray;
+    cursor: pointer;
+    border: 2px solid #555555;
+}
