@@ -2,16 +2,18 @@ document.getElementById('cursusReconmantion').innerHTML = 'A The world around yo
 function UpdateReccomandation(student) {
     var Course = "";
     switch (student){
-        case 'Jan':
+        case 'Jane Doe':
             Course = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
             break;
-        case 'Piet':
+        case 'Jan Kaas':
             Course = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
             break;
-        case 'Klaas':
+        case 'Jaap Doe':
             Course = 'Honours - Mindfulness voor professionals\u202f(OHON-MINDFUL-18)'
             break;
-
+        case 'Ellen Steven':
+            Course = 'A The world around you. About world citizenship\u202f(OA-MINBILDUN1-20)'
+            break;
     }
     document.getElementById('cursusReconmantion').innerHTML = Course
 
