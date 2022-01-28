@@ -1,1 +1,1 @@
-web: java java -jar target/myapp-1.0.0.jar
+web: java java -jar build/libs/INNO-1.0.jar
