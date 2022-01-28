@@ -11,9 +11,10 @@
 
 
 var students = {
-    1 : 'Jan',
-    2 : 'Piet',
-    3 : 'Klaas'
+    1 : 'Jane Doe',
+    2 : 'Jan Kaas',
+    3 : 'Jaap Doe',
+    4 : 'Ellen Steven'
 };
 
 var select = document.getElementById("studentsBox");
